@@ -3,6 +3,11 @@
   <p><strong>Premium public website + student / faculty / admin portals crafted for a modern university.</strong></p>
 </div>
 
+## Live Demo
+
+- Hosted: https://exampleuni.netlify.app/
+- Routing: Hash-based (works on any static host without server config).
+
 ## Overview
 
 Example University is a multi-role web experience that pairs a marketing-grade public site with operational portals for students, faculty, and administrators. Animations, polished typography, and purposeful layouts aim to match a real-world institutional brand.
@@ -14,6 +19,32 @@ Example University is a multi-role web experience that pairs a marketing-grade p
 - Motion-first UI: smooth page transitions via framer-motion and lightweight lazy loading for every page.
 - Data scaffolding: curated mock programs, notices, and library data to showcase flows end-to-end.
 - Responsive by design: tuned for desktop and mobile with consistent typography and spacing.
+
+## Feature Map
+
+- Public site
+   - Home, About, Academics, Programs + program detail, Admissions, Research, Campus Life, Placements, Alumni, Contact, Apply, Login.
+   - Story-driven hero sections, stats, testimonials, timelines, and partner/recruiter showcases.
+- Student portal
+   - Dashboard with courses, schedule, grades, notices, and quick resources.
+   - Course detail view for materials, assignments, and exams.
+- Faculty portal
+   - Dashboard for teaching load, class lists, and scheduling.
+   - Class roster view with assignments and attendance scaffolding.
+- Admin portal
+   - Dashboard with student intake chart, quick actions, and recent activity table.
+   - User management list with role/status controls.
+- Profiles
+   - Dedicated profile views for student, faculty, and admin personas with document lists and metadata.
+
+## Architecture Notes
+
+- Framework: React (with Vite) using functional components and hooks.
+- State: Context provider at [context/UniversityContext.tsx](context/UniversityContext.tsx) supplying mock auth, notices, programs, courses, and books.
+- Routing: React Router HashRouter in [App.tsx](App.tsx) with suspense-based lazy loading per page.
+- Motion: framer-motion for page transitions and section reveals.
+- Visualization: Recharts for simple admin charts; Lucide icons for consistent glyphs.
+- Styling: Utility-first classes (Tailwind-style) scoped per component.
 
 ## Tech Stack
 
@@ -45,6 +76,12 @@ Example University is a multi-role web experience that pairs a marketing-grade p
 - npm run dev — start Vite in dev mode.
 - npm run build — create an optimized production build.
 - npm run preview — preview the production bundle locally.
+
+## Data & Content
+
+- Programs and course catalogs are mocked in the context to drive program detail pages and portal course lists.
+- Users: seeded student, faculty, and admin accounts in context for quick role switching (email/password pairs in code for demos).
+- Media: screenshots live in public/images and are referenced directly in this README.
 
 ## Screenshots
 
@@ -86,7 +123,8 @@ Example University is a multi-role web experience that pairs a marketing-grade p
 ## Deployment Notes
 
 - The app ships with hash-based routing; it works on any static host (GitHub Pages, Netlify, Vercel static export).
-- Ensure the site is served from the project root so asset paths resolve (e.g., public/images/...).
+- Netlify: build command `npm run build`, publish directory `dist`.
+- Ensure the site is served from the project root so asset paths resolve (public/images/...).
 
 ## Developer
 
