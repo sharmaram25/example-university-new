@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Example University shield favicon">
+  <defs>
+    <linearGradient id="shield" x1="16" y1="6" x2="44" y2="58" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#3E5BFF" />
+      <stop offset="1" stop-color="#1E34A8" />
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="#0F1F3A" />
+  <path d="M32 4c-9.6 0-18.4 3.4-25.4 9.7V32c0 13.2 9.8 26 25.4 31 15.6-5 25.4-17.8 25.4-31V13.7C50.4 7.4 41.6 4 32 4z" fill="url(#shield)" />
+  <circle cx="32" cy="26" r="6" fill="#0F1F4D" />
+  <path d="M19.5 44.4c1.8-6.9 7.5-11.1 12.5-11.1s10.7 4.2 12.5 11.1c-4.8 3-9.6 4.6-15 4.6s-10.2-1.6-15-4.6z" fill="#0A1735" />
+  <path d="M46.8 12.5c0.5 1.1 1.5 1.9 2.7 2.2-1.2 0.3-2.2 1.1-2.7 2.2-0.5-1.1-1.5-1.9-2.7-2.2 1.2-0.3 2.2-1.1 2.7-2.2z" fill="#F2C94C" />
+</svg>
