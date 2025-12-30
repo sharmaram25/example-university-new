@@ -1,120 +1,150 @@
 <div align="center">
-   <h1>Example University Platform</h1>
-   <p><strong>A premium university website + multi-role portals (Student / Faculty / Admin)</strong></p>
+  <h1>Example University Platform</h1>
+  <p><strong>Premium university website + multi-role portals (Student / Faculty / Admin)</strong></p>
 
-   <p>
-      <a href="https://exampleuni.netlify.app/">Live Demo</a>
-      ·
-      <a href="#screenshots">Screenshots</a>
-      ·
-      <a href="#for-recruiters">For Recruiters</a>
-      ·
-      <a href="#for-students">For Students</a>
-   </p>
+  <p>
+    <a href="https://exampleuni.netlify.app/"><strong>Live Demo</strong></a>
+    &nbsp;·&nbsp;
+    <a href="#screenshots"><strong>Screenshots</strong></a>
+    &nbsp;·&nbsp;
+    <a href="#for-recruiters"><strong>Recruiter Snapshot</strong></a>
+    &nbsp;·&nbsp;
+    <a href="#for-students"><strong>Student Guide</strong></a>
+  </p>
+
+  <p>
+    <img alt="React" src="https://img.shields.io/badge/React-19-0F172A?style=for-the-badge&logo=react&logoColor=61DAFB" />
+    <img alt="TypeScript" src="https://img.shields.io/badge/TypeScript-5-0F172A?style=for-the-badge&logo=typescript&logoColor=3178C6" />
+    <img alt="Vite" src="https://img.shields.io/badge/Vite-6-0F172A?style=for-the-badge&logo=vite&logoColor=FACC15" />
+    <img alt="React Router" src="https://img.shields.io/badge/React%20Router-HashRouter-0F172A?style=for-the-badge&logo=reactrouter&logoColor=CA4245" />
+    <img alt="Netlify" src="https://img.shields.io/badge/Hosted%20on-Netlify-0F172A?style=for-the-badge&logo=netlify&logoColor=00C7B7" />
+  </p>
 </div>
 
 ---
 
-## What This Project Demonstrates
+## The Premise
 
-This project is built as a **portfolio-grade showcase**—designed to look and feel like a real institutional product.
+Welcome to a digital campus built for two worlds:
 
-- Brand-level UI polish (navy + gold visual language, strong typography, motion-first sections)
-- Multi-role architecture (public website + student/faculty/admin portals)
-- Realistic product flows (program browsing, course detail, schedules, grades, user management)
-- Maintainable React patterns (lazy-loaded routes, shared layouts, centralized state via context)
+- **The public world** — where a university earns trust (programs, admissions, placements, research, alumni stories)
+- **The operational world** — where the day is managed (student, faculty, and admin portals)
+
+This repository is designed as a **portfolio-grade showcase** that communicates frontend skill quickly to recruiters, while staying readable for students who want to learn from a realistic codebase.
 
 ## Live Demo
 
 - https://exampleuni.netlify.app/
 
-Notes:
-- Uses **hash routing** (`/#/...`) so it deploys cleanly to static hosting without server rewrites.
+Deployment note:
+- Uses **hash routing** (`/#/...`) so it remains static-host friendly (no rewrite rules required).
 
-## Overview
+## Table of Contents
 
-Example University is a multi-role web experience that pairs a marketing-grade public site with operational portals. It is intentionally built with **clean UX, crisp transitions, and structured UI composition** to mirror production standards.
+- [For Recruiters](#for-recruiters)
+- [For Students](#for-students)
+- [Tech Stack](#tech-stack)
+- [Local Setup](#local-setup)
+- [Project Structure](#project-structure)
+- [Deployment](#deployment)
+- [Screenshots](#screenshots)
+- [Developer](#developer)
 
-## Highlights
+---
 
-- Public website with story-driven hero sections and conversion-style CTAs
-- Student portal: dashboard, schedule, grades, course details
-- Faculty portal: teaching dashboard + classes
-- Admin portal: analytics overview + user management
-- Route-level code splitting + suspense fallbacks for fast initial load
+## A Quick Tour (Storytelling)
+
+### The public experience — “Why this university?”
+
+The public site is intentionally designed like a premium institutional brand:
+
+- strong navy/gold identity
+- bold, confident typography
+- motion that supports the narrative (not distracting)
+- conversion-style CTAs (Explore / Apply)
+
+### The portal experience — “Run the day”
+
+The portals are built like real products:
+
+- **Students** check courses, grades, schedules, and resources
+- **Faculty** monitor classes and teaching workload
+- **Admins** see summaries and manage users
 
 ---
 
 ## For Recruiters
 
-If you’re evaluating my work for an internship/full-time role, here’s what you can quickly assess from this codebase.
+If you’re evaluating my work for an internship/full-time role, this section is written to be scan-friendly.
 
-### Core Skills Showcased
+### Recruiter Snapshot
 
-- **React + TypeScript (production-style component design)**
-   - Consistent props typing, reusable sections, and separation of concerns.
-- **Routing & app structure**
-   - HashRouter + route-level lazy loading in [App.tsx](App.tsx).
-- **State management & data modeling**
-   - Central provider in [context/UniversityContext.tsx](context/UniversityContext.tsx) with typed entities (users, programs, courses, notices).
-- **UI/UX engineering**
-   - Motion design with `framer-motion`, responsive layouts, and polished interaction states.
-- **Dashboard-style visualization**
-   - Charts in the admin experience using `recharts`.
+What you can verify quickly:
 
-### Architecture (High Level)
+- **UI engineering:** consistent layout rhythm, responsive design, and coherent brand identity
+- **App architecture:** clear separation between public pages and portal pages
+- **Performance habits:** route-level lazy loading + suspense fallbacks
+- **TypeScript usage:** typed models + predictable data flow
+- **Dashboard patterns:** cards, tables, charts, and “at-a-glance” information design
 
-- **Routing:** public routes + dedicated portal routes.
-- **Layout strategy:** common navbar/footer for public pages, portal layout for dashboard screens.
-- **Data source:** mocked master data (programs/courses/users) to demonstrate end-to-end flows without requiring a backend.
+### Architecture (How It’s Put Together)
+
+- **Routing:** HashRouter + route-level code splitting in [App.tsx](App.tsx)
+- **State & domain modeling:** context-driven app state in [context/UniversityContext.tsx](context/UniversityContext.tsx)
+- **Portals:** dashboard screens under [pages/portal](pages/portal)
+- **Motion:** `framer-motion` for transitions and section reveals
 
 ### Product Thinking / Decisions
 
 - **Static-host friendly:** Hash routing avoids deployment complexity.
 - **Performance-minded:** lazy-loaded pages to reduce initial bundle.
-- **Realistic UX:** portals are role-oriented and present information in the way users actually consume it (schedule grid, grades table, admin insights).
+- **Realistic UX:** dashboards present information the way users consume it (schedule grid, grades tables, admin summaries).
 
-### If I Had More Time (Roadmap)
+### Roadmap (If This Were Production)
 
 - Replace mock data with an API + persistence layer.
-- Add authentication tokens + protected route guards.
-- Add form validation + server-side error flows.
-- Add tests (unit + integration) around core portal flows.
+- Add auth tokens + protected routes.
+- Add validation + error flows.
+- Add tests (unit + integration) for portal flows.
 
 ---
 
 ## For Students
 
-If you’re learning frontend engineering, this repo is structured to be a readable reference.
+If you’re learning frontend engineering, this repo is designed to be a readable reference. Treat it like a mini “product codebase” you can study.
 
-### What You Can Learn Here
+### What You’ll Learn
 
 - How to organize a React app by **pages vs shared components**
 - How to build **route-level code splitting** with `React.lazy` + `Suspense`
 - How to use **Context** to model domain data (users, courses, notices)
 - How to create dashboard-style UIs (tables, cards, charts)
-- How to add tasteful **motion** without overwhelming the UI
+- How to add tasteful motion without overwhelming the UI
 
-### Suggested Learning Path
+### Student Guide (Suggested Learning Path)
 
 1. Start at [App.tsx](App.tsx) to understand the route map and portal separation.
 2. Open [context/UniversityContext.tsx](context/UniversityContext.tsx) to see how the project models data and exposes actions.
 3. Explore the portal pages under [pages/portal](pages/portal) to study dashboard composition.
 
-### How To Extend It
+### Practice Challenges
 
-- Add a new portal page under `pages/portal/` and register it in [App.tsx](App.tsx).
-- Add a new dataset type in [types.ts](types.ts) and wire it into the context provider.
+- Add a new “Student → Attendance” screen and link it in [App.tsx](App.tsx).
+- Add a “Search Courses” input that filters by course code/title.
+- Add a protected route wrapper that redirects to Login when no user exists.
 
 ---
 
 ## Tech Stack
 
-- React + TypeScript + Vite
-- React Router (HashRouter)
-- framer-motion
-- Recharts
-- Lucide icons
+| Category | Tools |
+| --- | --- |
+| Framework | React + TypeScript |
+| Build | Vite |
+| Routing | React Router (HashRouter) |
+| Motion | framer-motion |
+| Charts | Recharts |
+| Icons | Lucide |
 
 ## Local Setup
 
@@ -147,36 +177,65 @@ npm run preview
 
 ## Screenshots
 
-### Public site
+<details>
+  <summary><strong>Public Site</strong> (click to expand)</summary>
 
-![Home](public/images/home.png)
+  ![Home](public/images/home.png)
 
-![Campus Life](public/images/campus.png)
+  ![Campus Life](public/images/campus.png)
 
-![Alumni](public/images/alumni.png)
+  ![Alumni](public/images/alumni.png)
 
-![Faculty](public/images/faculty.png)
+  ![Faculty](public/images/faculty.png)
+</details>
 
-### Portals
+<details>
+  <summary><strong>Portals</strong> (click to expand)</summary>
 
-![Login Portal](public/images/Login%20portal.png)
+  ![Login Portal](public/images/Login%20portal.png)
 
-![Student Portal](public/images/student%20portal.png)
+  ![Student Portal](public/images/student%20portal.png)
 
-![Faculty Portal](public/images/faculty%20portal.png)
+  ![Faculty Portal](public/images/faculty%20portal.png)
 
-![Admin Portal](public/images/admin%20portal.png)
+  ![Admin Portal](public/images/admin%20portal.png)
+</details>
 
-### Profiles
+<details>
+  <summary><strong>Profiles</strong> (click to expand)</summary>
 
-![Student Profile](public/images/student%20profile.png)
+  ![Student Profile](public/images/student%20profile.png)
 
-![Faculty Profile](public/images/faculty%20profile.png)
+  ![Faculty Profile](public/images/faculty%20profile.png)
 
-![Admin Profile](public/images/admin%20profile.png)
+  ![Admin Profile](public/images/admin%20profile.png)
+</details>
 
 ---
 
 ## Developer
 
-This project was conceived, designed, and fully built by **Ram Sharma**.
+### Built by Ram Sharma (End-to-End)
+
+This project was **conceived, designed, and fully built by Ram Sharma** as a portfolio showcase.
+
+What I personally owned:
+
+- Product concept + information architecture (public site + role-based portals)
+- UI design direction (navy/gold brand language, layout system, responsive behavior)
+- React + TypeScript implementation (components, pages, routing, state)
+- Motion design (page transitions and section animations)
+- Deployment (Netlify) and project documentation
+
+### How To Review My Work (Fast)
+
+If you have 5–10 minutes:
+
+1. Open the live demo: https://exampleuni.netlify.app/
+2. Scan routing + route-level lazy loading in [App.tsx](App.tsx)
+3. Review typed models + central data provider in [context/UniversityContext.tsx](context/UniversityContext.tsx)
+4. Browse dashboard screens under [pages/portal](pages/portal)
+
+### Links
+
+- GitHub: https://github.com/sharmaram25
